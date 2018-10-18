@@ -6,23 +6,11 @@
         android:title="Item1"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/overflow"
-        android:icon="@mipmap/ic_launcher"
-        android:title="overflow"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:icon="@drawable/ic_home_white_24dp"
-                android:title="HOME"
-                android:id="@+id/home"/>
-            <item
-                android:id="@+id/item2"
-                android:title="Item2"
-                app:showAsAction="never" />
-            <item
-                android:id="@+id/item3"
-                android:title="Item3"
-                app:showAsAction="never" />
-        </menu>
-    </item>
+        android:id="@+id/item2"
+        android:title="Item2"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item3"
+        android:title="Item3"
+        app:showAsAction="never" />
 </menu>
