@@ -1,19 +1,30 @@
-package com.batman.example.di
+package com.batman.example.presentation
 
 import android.app.Application
 import android.os.Environment
+import com.batman.example.di.ApplicationComponent
+import com.batman.example.di.ApplicationModule
+import com.batman.example.di.DaggerApplicationComponent
 import java.io.*
 
 class ExampleApplication: Application() {
-
-    // Public var so other classes can use the same module
+    /*
+       Allow other classes to inject the same component
+    */
     lateinit var applicationComponent: ApplicationComponent
 
+    /*
+       Setup local variables
+    */
+    private val logDirectory = Environment.getExternalStorageDirectory().toString() + "/Example"
+    private val logFile = "log.txt"
+
+    // <editor-fold desc="Execute in response to the application's creation">
     @Override
     override fun onCreate() {
         super.onCreate()
 
-        Thread.setDefaultUncaughtExceptionHandler { thread, ex ->
+        Thread.setDefaultUncaughtExceptionHandler { _, ex ->
             val stringWriter = StringWriter()
             val printWriter = PrintWriter(stringWriter)
             ex.printStackTrace(printWriter)
@@ -27,18 +38,21 @@ class ExampleApplication: Application() {
 
         di()
     }
+    // </editor-fold>
 
+    // <editor-fold desc="Inject dependencies">
     private fun di(){
         applicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))
                 .build()
         applicationComponent.inject(this)
     }
+    // </editor-fold>
 
+    // <editor-fold desc="Log stack trace to a file">
     private fun logStackTrace(stackTrace: String) {
-        val dir = File(Environment.getExternalStorageDirectory(), "Example")
         try {
-            val logFile = File(dir, "log.txt")
+            val logFile = File(logDirectory, logFile)
             val writer = BufferedWriter(FileWriter(logFile, true))
             writer.write(TimeStamper.generateTimestamp())
             writer.newLine()
@@ -48,9 +62,9 @@ class ExampleApplication: Application() {
             writer.newLine()
             writer.newLine()
             writer.close()
-        } catch (e: IOException) {
+        } catch (e: IOException) { // This will fail if file i/o permission were not granted
             e.printStackTrace()
         }
-
     }
+    // </editor-fold>
 }

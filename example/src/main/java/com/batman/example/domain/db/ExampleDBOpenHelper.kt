@@ -3,18 +3,19 @@ package com.batman.example.domain.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.batman.example.domain.db.query.Example1Query
+import com.batman.example.domain.db.query.ExampleStringQuery
 
 const val DB_NAME = "EXAMPLE.db"
 const val VERSION = 1
 
 class ExampleDBOpenHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, VERSION) {
-    // Call the create table functions here for a first time db setup
+    // <editor-fold desc="Execute in response to the database file's creation">
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(Example1Query.CREATE_TABLE)
+        db.execSQL(ExampleStringQuery.createTable())
     }
+    // </editor-fold>
 
-    // Changes to the DB after a release need to be implemented here to upgrade old databases
-    override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) { }
-
+    // <editor-fold desc="Execute in response to a change in the VERSION number">
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) { }
+    // </editor-fold>
 }

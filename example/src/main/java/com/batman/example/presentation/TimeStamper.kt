@@ -1,13 +1,9 @@
-package com.batman.example.di
+package com.batman.example.presentation
 
 import java.text.SimpleDateFormat
-import java.util.Calendar
+import java.util.*
 
-/**
- * Created on 4/26/2016.
- */
 object TimeStamper {
-
     fun generateTimestamp(): String {
         val now = System.currentTimeMillis()
         return millisToTime(now)
@@ -16,7 +12,7 @@ object TimeStamper {
     private fun millisToTime(millis: Long): String {
         val cal = Calendar.getInstance()
         cal.timeInMillis = millis
-        val dateFormat = SimpleDateFormat("yyyyMMdd_HHmmss")
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy-HH:mm:ss", Locale.ENGLISH)
         return dateFormat.format(cal.time)
     }
 }

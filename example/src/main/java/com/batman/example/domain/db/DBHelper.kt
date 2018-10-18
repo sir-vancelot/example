@@ -4,11 +4,8 @@ import android.database.Cursor
 
 import java.util.Date
 
-/**
- * Created on 3/15/2017.
- */
-
 object DBHelper {
+    // <editor-fold desc="Helper functions to get objects out of database cursors">
     fun booleanToLong(value: Boolean): Long {
         return (if (value) 1 else 0).toLong()
     }
@@ -51,4 +48,5 @@ object DBHelper {
     fun getBytes(cursor: Cursor, columnName: String): ByteArray {
         return cursor.getBlob(cursor.getColumnIndex(columnName))
     }
+    // </editor-fold>
 }
