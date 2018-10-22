@@ -10,7 +10,6 @@ class CounterService: LocalService {
     var disposable: Disposable? = null
     var seconds: Long = 0
 
-    // <editor-fold desc="Begin the service">
     override fun start() {
         if (disposable != null && !disposable!!.isDisposed) {
             disposable!!.dispose()
@@ -21,14 +20,11 @@ class CounterService: LocalService {
             publishNotification(CounterNotification(seconds))
         }
     }
-    // </editor-fold>
 
-    // <editor-fold desc="Stop the service">
     override fun stop() {
         if (disposable != null && !disposable!!.isDisposed) {
             disposable!!.dispose()
         }
         seconds = 0
     }
-    // </editor-fold>
 }

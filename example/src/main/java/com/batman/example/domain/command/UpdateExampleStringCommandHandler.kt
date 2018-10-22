@@ -4,11 +4,8 @@ import com.batman.example.domain.datastore.ExampleStringDatastore
 import com.batman.example.domain.model.ExampleStringModel
 import io.reactivex.Maybe
 
-// <editor-fold desc="Define a command for the command handler">
-data class UpdateExampleStringCommand(val exampleStringModel: ExampleStringModel)
-// </editor-fold>
+class UpdateExampleStringCommand(val exampleStringModel: ExampleStringModel): Command()
 
-// <editor-fold desc="Define a command handler and override the execute function">
 class UpdateExampleStringCommandHandler(private val exampleStringDatastore: ExampleStringDatastore): CommandHandler<UpdateExampleStringCommand> {
     override fun execute(command: UpdateExampleStringCommand): Maybe<Unit> {
         return Maybe.fromCallable {
@@ -16,4 +13,3 @@ class UpdateExampleStringCommandHandler(private val exampleStringDatastore: Exam
         }
     }
 }
-// </editor-fold>
