@@ -1,11 +1,10 @@
 package com.batman.example.di
 
-import android.app.Activity
-import com.batman.example.domain.db.ExampleDBOpenHelper
+import com.batman.example.infrastructure.db.ExampleDBOpenHelper
 import com.batman.example.domain.datastore.ExampleStringDatastore
-import com.batman.example.infrastructure.command.UpdateExampleStringCommandHandler
-import com.batman.example.infrastructure.query.ReadExampleStringQueryHandler
-import com.batman.example.infrastructure.service.CounterService
+import com.batman.example.domain.command.UpdateExampleStringCommandHandler
+import com.batman.example.domain.query.ReadExampleStringQueryHandler
+import com.batman.example.domain.service.CounterService
 import com.batman.example.presentation.example.ExampleActivity
 import com.bluelinelabs.conductor.Router
 import com.batman.example.presentation.example.ExampleNavigation

@@ -5,6 +5,7 @@ import android.os.Environment
 import com.batman.example.di.ApplicationComponent
 import com.batman.example.di.ApplicationModule
 import com.batman.example.di.DaggerApplicationComponent
+import com.batman.example.presentation.misc.BatmanTimeStamper
 import java.io.*
 
 class ExampleApplication: Application() {
@@ -54,7 +55,7 @@ class ExampleApplication: Application() {
         try {
             val logFile = File(logDirectory, logFile)
             val writer = BufferedWriter(FileWriter(logFile, true))
-            writer.write(TimeStamper.generateTimestamp())
+            writer.write(BatmanTimeStamper.generateTimestamp())
             writer.newLine()
             writer.write(stackTrace)
             writer.write("**************************************")

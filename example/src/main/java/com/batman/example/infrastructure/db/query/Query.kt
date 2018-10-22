@@ -1,4 +1,4 @@
-package com.batman.example.domain.db.query
+package com.batman.example.infrastructure.db.query
 
 import android.content.ContentValues
 

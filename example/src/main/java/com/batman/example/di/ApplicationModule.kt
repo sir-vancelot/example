@@ -1,6 +1,6 @@
 package com.batman.example.di
 
-import com.batman.example.domain.db.ExampleDBOpenHelper
+import com.batman.example.infrastructure.db.ExampleDBOpenHelper
 import com.batman.example.presentation.ExampleApplication
 import dagger.Module
 import dagger.Provides

@@ -1,7 +1,7 @@
 package com.batman.example.presentation.example.example2
 
-import com.batman.example.infrastructure.command.UpdateExampleStringCommand
-import com.batman.example.infrastructure.query.ReadExampleStringQuery
+import com.batman.example.domain.command.UpdateExampleStringCommand
+import com.batman.example.domain.query.ReadExampleStringQuery
 import com.batman.example.presentation.example.ExampleNavigation
 import com.batman.example.presentation.misc.BatmanViewModel
 import io.reactivex.disposables.Disposable

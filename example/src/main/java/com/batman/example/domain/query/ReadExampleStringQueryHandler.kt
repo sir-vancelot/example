@@ -1,7 +1,7 @@
-package com.batman.example.infrastructure.query
+package com.batman.example.domain.query
 
 import com.batman.example.domain.datastore.ExampleStringDatastore
-import com.batman.example.infrastructure.model.ExampleStringModel
+import com.batman.example.domain.model.ExampleStringModel
 import io.reactivex.Maybe
 
 // <editor-fold desc="Define a execute for the execute handler">

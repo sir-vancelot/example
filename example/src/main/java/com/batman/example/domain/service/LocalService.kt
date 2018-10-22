@@ -1,4 +1,4 @@
-package com.batman.example.infrastructure.service
+package com.batman.example.domain.service
 
 interface LocalService {
     fun start()

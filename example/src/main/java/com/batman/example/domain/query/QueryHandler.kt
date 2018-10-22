@@ -1,4 +1,4 @@
-package com.batman.example.infrastructure.query
+package com.batman.example.domain.query
 
 import io.reactivex.Maybe
 

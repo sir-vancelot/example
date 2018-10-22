@@ -1,9 +1,9 @@
-package com.batman.example.domain.db
+package com.batman.example.infrastructure.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.batman.example.domain.db.query.ExampleStringQuery
+import com.batman.example.infrastructure.db.query.ExampleStringQuery
 
 const val DB_NAME = "EXAMPLE.db"
 const val VERSION = 1

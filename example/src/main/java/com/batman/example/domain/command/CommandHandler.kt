@@ -1,4 +1,4 @@
-package com.batman.example.infrastructure.command
+package com.batman.example.domain.command
 
 import io.reactivex.Maybe
 

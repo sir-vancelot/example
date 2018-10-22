@@ -1,9 +1,9 @@
-package com.batman.example.domain.mapper
+package com.batman.example.infrastructure.mapper
 
 import android.database.Cursor
-import com.batman.example.domain.db.DBHelper
-import com.batman.example.domain.db.query.ExampleStringQuery.COLUMNS
-import com.batman.example.infrastructure.model.ExampleStringModel
+import com.batman.example.infrastructure.db.DBHelper
+import com.batman.example.infrastructure.db.query.ExampleStringQuery.COLUMNS
+import com.batman.example.domain.model.ExampleStringModel
 
 object ExampleStringModelMapper {
     // <editor-fold desc="Transform all of the entries in a cursor to their corresponding model">

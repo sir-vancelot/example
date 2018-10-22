@@ -1,7 +1,7 @@
 package com.batman.example.presentation.example.example1
 
-import com.batman.example.infrastructure.notification.CounterNotification
-import com.batman.example.infrastructure.notification.NotificationPublisher
+import com.batman.example.domain.notification.CounterNotification
+import com.batman.example.domain.notification.NotificationPublisher
 import com.batman.example.presentation.example.ExampleNavigation
 import com.batman.example.presentation.misc.BatmanViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers

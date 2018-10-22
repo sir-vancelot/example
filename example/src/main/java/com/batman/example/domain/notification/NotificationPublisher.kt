@@ -1,4 +1,4 @@
-package com.batman.example.infrastructure.notification
+package com.batman.example.domain.notification
 
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject

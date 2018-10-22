@@ -1,7 +1,7 @@
-package com.batman.example.domain.db.query
+package com.batman.example.infrastructure.db.query
 
 import android.content.ContentValues
-import com.batman.example.infrastructure.model.ExampleStringModel
+import com.batman.example.domain.model.ExampleStringModel
 
 object ExampleStringQuery: Query<ExampleStringModel>() {
     /*

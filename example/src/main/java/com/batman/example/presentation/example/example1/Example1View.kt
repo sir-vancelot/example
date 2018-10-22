@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.batman.example.R
-import com.batman.example.infrastructure.service.CounterService
+import com.batman.example.domain.service.CounterService
 import com.batman.example.presentation.example.ExampleActivity
 import com.batman.example.presentation.example.ExampleNavigation
 import com.batman.example.presentation.misc.BatmanView

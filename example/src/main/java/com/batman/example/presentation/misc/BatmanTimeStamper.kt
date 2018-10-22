@@ -1,9 +1,9 @@
-package com.batman.example.presentation
+package com.batman.example.presentation.misc
 
 import java.text.SimpleDateFormat
 import java.util.*
 
-object TimeStamper {
+object BatmanTimeStamper {
     fun generateTimestamp(): String {
         val now = System.currentTimeMillis()
         return millisToTime(now)

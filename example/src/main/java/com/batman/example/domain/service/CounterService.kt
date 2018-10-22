@@ -1,7 +1,7 @@
-package com.batman.example.infrastructure.service
+package com.batman.example.domain.service
 
-import com.batman.example.infrastructure.notification.CounterNotification
-import com.batman.example.infrastructure.notification.NotificationPublisher.publishNotification
+import com.batman.example.domain.notification.CounterNotification
+import com.batman.example.domain.notification.NotificationPublisher.publishNotification
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit

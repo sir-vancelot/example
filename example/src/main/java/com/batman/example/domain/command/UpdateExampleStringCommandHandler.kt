@@ -1,7 +1,7 @@
-package com.batman.example.infrastructure.command
+package com.batman.example.domain.command
 
 import com.batman.example.domain.datastore.ExampleStringDatastore
-import com.batman.example.infrastructure.model.ExampleStringModel
+import com.batman.example.domain.model.ExampleStringModel
 import io.reactivex.Maybe
 
 // <editor-fold desc="Define a command for the command handler">
