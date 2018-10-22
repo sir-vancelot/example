@@ -37,7 +37,7 @@ class ExampleStringDatastore(private val exampleDBOpenHelper: ExampleDBOpenHelpe
     // <editor-fold desc="Read all of the rows from the database and return the models"
     override fun read(): ArrayList<ExampleStringModel> {
         val db = exampleDBOpenHelper.readableDatabase
-        val cursor = db.rawQuery(ExampleStringQuery.selectAll(), arrayOfNulls<String>(0))
+        val cursor = db.rawQuery(ExampleStringQuery.selectAll, arrayOfNulls<String>(0))
 
         val exampleStringModels = ExampleStringModelMapper.transformList(cursor)
 
