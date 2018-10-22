@@ -2,11 +2,31 @@ package com.batman.example.infrastructure.db.query
 
 import android.content.ContentValues
 
-abstract class Query<Model> {
-    abstract val tableName: String
+interface Query<Model> {
+    /*
+       Declare a name for the database table
+    */
+    val tableName: String
 
-    abstract fun createTable(): String
-    abstract fun selectAll(): String
-    abstract fun insert(model: Model): ContentValues
-    abstract fun update(model: Model): ContentValues
+    /*
+       Define the SQL to create the table
+    */
+    val createTable: String
+
+    /*
+       Define the SQL to select all entries in the table
+    */
+    val selectAll: String
+
+    // <editor-fold desc="Create ContentValues to insert the provided model">
+    fun insert(model: Model): ContentValues
+    // </editor-fold>
+
+    // <editor-fold desc="Create ContentValues to update the provided model">
+    fun update(model: Model): ContentValues
+    // </editor-fold>
+
+    // <editor-fold desc="Setup ContentValues to prevent SQL injection">
+    fun contentValueHelper(contentValues: ContentValues, model: Model): ContentValues
+    // </editor-fold>
 }

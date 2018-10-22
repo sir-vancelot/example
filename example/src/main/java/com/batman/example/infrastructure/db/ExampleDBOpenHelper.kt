@@ -11,7 +11,7 @@ const val VERSION = 1
 class ExampleDBOpenHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, VERSION) {
     // <editor-fold desc="Execute in response to the database file's creation">
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(ExampleStringQuery.createTable())
+        db.execSQL(ExampleStringQuery.createTable)
     }
     // </editor-fold>
 
