@@ -1,4 +1,4 @@
-package com.batman.example.di
+package com.batman.example.di.scopes
 
 import javax.inject.Scope
 

@@ -1,5 +1,6 @@
 package com.batman.example.di
 
+import com.batman.example.di.scopes.ActivityScope
 import com.batman.example.presentation.example.ExampleActivity
 import com.batman.example.presentation.example.example1.Example1View
 import com.batman.example.presentation.example.example2.Example2View
