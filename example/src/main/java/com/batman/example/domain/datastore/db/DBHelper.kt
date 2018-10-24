@@ -1,4 +1,4 @@
-package com.batman.example.infrastructure.datastore.db
+package com.batman.example.domain.datastore.db
 
 import android.database.Cursor
 

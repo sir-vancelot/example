@@ -1,4 +1,4 @@
-package com.batman.example.infrastructure.mapper
+package com.batman.example.domain.mapper
 
 import android.database.Cursor
 

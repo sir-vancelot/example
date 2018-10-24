@@ -1,6 +1,6 @@
 package com.batman.example.domain.query
 
-import com.batman.example.infrastructure.datastore.ExampleStringDatastore
+import com.batman.example.domain.datastore.ExampleStringDatastore
 import com.batman.example.domain.model.ExampleStringModel
 import io.reactivex.Maybe
 

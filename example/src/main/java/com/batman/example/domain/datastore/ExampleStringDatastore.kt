@@ -1,10 +1,10 @@
-package com.batman.example.infrastructure.datastore
+package com.batman.example.domain.datastore
 
 import android.database.sqlite.SQLiteDatabase
 import com.batman.example.domain.misc.IdGenerator
-import com.batman.example.infrastructure.datastore.db.ExampleDBOpenHelper
-import com.batman.example.infrastructure.mapper.ExampleStringModelMapper
-import com.batman.example.infrastructure.datastore.db.query.ExampleStringQuery
+import com.batman.example.domain.datastore.db.ExampleDBOpenHelper
+import com.batman.example.domain.mapper.ExampleStringModelMapper
+import com.batman.example.domain.datastore.db.query.ExampleStringQuery
 import com.batman.example.domain.model.ExampleStringModel
 
 class ExampleStringDatastore(private val exampleDBOpenHelper: ExampleDBOpenHelper): Datastore<ExampleStringModel> {

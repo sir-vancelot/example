@@ -1,8 +1,8 @@
-package com.batman.example.infrastructure.mapper
+package com.batman.example.domain.mapper
 
 import android.database.Cursor
-import com.batman.example.infrastructure.datastore.db.DBHelper
-import com.batman.example.infrastructure.datastore.db.query.ExampleStringQuery.COLUMNS
+import com.batman.example.domain.datastore.db.DBHelper
+import com.batman.example.domain.datastore.db.query.ExampleStringQuery.COLUMNS
 import com.batman.example.domain.model.ExampleStringModel
 
 object ExampleStringModelMapper: ModelMapper<ExampleStringModel> {
