@@ -28,7 +28,7 @@ class Example2ViewModel(exampleNavigation: ExampleNavigation,
     }
 
     override fun populateView() {
-        readExampleStringDisposable = (queries as Example2Queries).readExampleStringQueryHandler.execute(ReadExampleStringQuery()).subscribe{view!!.onData(it[0])}
+        readExampleStringDisposable = (queries as Example2Queries).readExampleStringQueryHandler.execute(ReadExampleStringQuery()).subscribe{view!!.onData(it!![0])}
     }
 
     override fun updateDatastore() {

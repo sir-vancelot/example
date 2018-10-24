@@ -1,4 +1,4 @@
-package com.batman.example.domain.datastore
+package com.batman.example.infrastructure.datastore
 
 interface Datastore <Model> {
     /*

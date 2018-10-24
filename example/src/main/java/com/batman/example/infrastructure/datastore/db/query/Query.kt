@@ -1,4 +1,4 @@
-package com.batman.example.infrastructure.db.query
+package com.batman.example.infrastructure.datastore.db.query
 
 import android.content.ContentValues
 

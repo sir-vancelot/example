@@ -1,8 +1,8 @@
 package com.batman.example.di
 
 import com.batman.example.di.scopes.ActivityScope
-import com.batman.example.infrastructure.db.ExampleDBOpenHelper
-import com.batman.example.domain.datastore.ExampleStringDatastore
+import com.batman.example.infrastructure.datastore.db.ExampleDBOpenHelper
+import com.batman.example.infrastructure.datastore.ExampleStringDatastore
 import com.batman.example.domain.command.UpdateExampleStringCommandHandler
 import com.batman.example.domain.query.ReadExampleStringQueryHandler
 import com.batman.example.domain.service.CounterService
