@@ -55,6 +55,7 @@ class ExampleApplication: Application() {
         try {
             File(logDirectory).mkdirs()
             val logFile = File(logDirectory, logFile)
+            logFile.mkdirs()
             val writer = BufferedWriter(FileWriter(logFile, true))
             writer.write(BatmanTimeStamper.generateTimestamp())
             writer.newLine()
