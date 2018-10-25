@@ -54,6 +54,7 @@ class ExampleApplication: Application() {
     private fun logStackTrace(stackTrace: String) {
         try {
             val logFile = File(logDirectory, logFile)
+            logFile.mkdirs()
             val writer = BufferedWriter(FileWriter(logFile, true))
             writer.write(BatmanTimeStamper.generateTimestamp())
             writer.newLine()
