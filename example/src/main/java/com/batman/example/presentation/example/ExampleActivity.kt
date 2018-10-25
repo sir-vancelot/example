@@ -29,15 +29,6 @@ class ExampleActivity: BatmanActivity() {
     */
     lateinit var exampleComponent: ExampleComponent
 
-    // <editor-fold desc="Execute in response to the activity's creation">
-    @Override
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initialize(savedInstanceState)
-        di()
-    }
-    // </editor-fold>
-
     override fun initialize(savedInstanceState: Bundle?) {
         // <editor-fold desc="Request permissions because this is the main activity">
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
