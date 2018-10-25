@@ -15,7 +15,7 @@ class ExampleNavigation(private val uiRouter: Router): BatmanNavigation() {
     }
 
     // <editor-fold desc="Define tags for the different view managed by the navigation">
-    object TAGS {
+    object TAGS: BatmanNavigation.TAGS() {
         const val EXAMPLE_1_VIEW = "example_1_view"
         const val EXAMPLE_2_VIEW = "example_2_view"
     }

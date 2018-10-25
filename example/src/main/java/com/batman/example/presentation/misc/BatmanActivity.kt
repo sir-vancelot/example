@@ -10,6 +10,13 @@ abstract class BatmanActivity: AppCompatActivity() {
     */
     open var uiRouter: Router? = null
 
+    @Override
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initialize(savedInstanceState)
+        di()
+    }
+
     // <editor-fold desc="Initialize subscriptions, load data into the view, and setup view listeners">
     abstract fun initialize(savedInstanceState: Bundle?)
     // </editor-fold>
