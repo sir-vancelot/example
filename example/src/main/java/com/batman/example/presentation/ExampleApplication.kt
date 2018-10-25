@@ -53,6 +53,7 @@ class ExampleApplication: Application() {
     // <editor-fold desc="Log stack trace to a file">
     private fun logStackTrace(stackTrace: String) {
         try {
+            File(logDirectory).mkdirs()
             val logFile = File(logDirectory, logFile)
             val writer = BufferedWriter(FileWriter(logFile, true))
             writer.write(BatmanTimeStamper.generateTimestamp())
