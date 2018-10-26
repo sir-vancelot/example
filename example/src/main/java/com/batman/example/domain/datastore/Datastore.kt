@@ -7,7 +7,7 @@ interface Datastore <Model> {
     var cache: ArrayList<Model>
 
     // <editor-fold desc="Initialize the cache">
-    fun constructor()
+    fun initialize()
     // </editor-fold>
 
     // <editor-fold desc="Create a row in the database and return the model">

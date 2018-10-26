@@ -10,7 +10,11 @@ import com.batman.example.domain.model.ExampleStringModel
 class ExampleStringDatastore(private val exampleDBOpenHelper: ExampleDBOpenHelper): Datastore<ExampleStringModel> {
     override var cache = ArrayList<ExampleStringModel>()
 
-    override fun constructor() {
+    init {
+        initialize()
+    }
+
+    override fun initialize() {
         cache = read()
 
         if (cache.isEmpty()) {
