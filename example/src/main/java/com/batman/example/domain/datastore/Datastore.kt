@@ -11,7 +11,7 @@ interface Datastore <Model> {
     // </editor-fold>
 
     // <editor-fold desc="Create a row in the database and return the model">
-    fun create(): Model
+    fun create(model: Model)
     // </editor-fold>
 
     // <editor-fold desc="Read all of the rows from the database and return the models"

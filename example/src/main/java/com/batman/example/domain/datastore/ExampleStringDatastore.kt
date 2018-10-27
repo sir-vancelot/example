@@ -17,17 +17,17 @@ class ExampleStringDatastore(private val exampleDBOpenHelper: ExampleDBOpenHelpe
     override fun initialize() {
         cache = read()
 
+        // Since this example app should only ever have one exampleString entry. If the read returns
+        // empty, create the db entry (this will only happen on the first app launch).
         if (cache.isEmpty()) {
-            val exampleStringModel = create()
-            cache.add(exampleStringModel)
+            create(ExampleStringModel(IdGenerator.generateId()))
         }
     }
 
-    override fun create(): ExampleStringModel {
-        val exampleString = ExampleStringModel(IdGenerator.generateId())
+    override fun create(model: ExampleStringModel) {
         val db = exampleDBOpenHelper.writableDatabase
-        db.insertOrThrow(ExampleStringQuery.tableName, null, ExampleStringQuery.insert(exampleString))
-        return exampleString
+        db.insertOrThrow(ExampleStringQuery.tableName, null, ExampleStringQuery.insert(model))
+        cache.add(model)
     }
 
     override fun read(): ArrayList<ExampleStringModel> {
