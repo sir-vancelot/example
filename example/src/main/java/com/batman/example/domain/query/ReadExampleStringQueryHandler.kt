@@ -1,15 +1,10 @@
 package com.batman.example.domain.query
 
+import com.batman.batdroid.domain.interactor.query.BatmanReadAllQuery
+import com.batman.batdroid.domain.interactor.query.datastore.BatmanReadAllQueryHandler
 import com.batman.example.domain.datastore.ExampleStringDatastore
 import com.batman.example.domain.model.ExampleStringModel
-import io.reactivex.Maybe
 
-class ReadExampleStringQuery: Query
+class ReadExampleStringQuery: BatmanReadAllQuery()
 
-class ReadExampleStringQueryHandler(private val exampleStringDatastore: ExampleStringDatastore): QueryHandler<ReadExampleStringQuery, List<ExampleStringModel>> {
-    override fun execute(query: ReadExampleStringQuery): Maybe<List<ExampleStringModel>?> {
-        return Maybe.fromCallable {
-            exampleStringDatastore.cache
-        }
-    }
-}
+class ReadExampleStringQueryHandler(exampleStringDatastore: ExampleStringDatastore): BatmanReadAllQueryHandler<ReadExampleStringQuery, ExampleStringModel>(exampleStringDatastore)

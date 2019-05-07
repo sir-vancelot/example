@@ -1,11 +1,11 @@
 package com.batman.example.di
 
+import com.batman.batdroid.di.BatmanApplicationScope
 import com.batman.example.domain.datastore.db.ExampleDBOpenHelper
 import com.batman.example.presentation.ExampleApplication
 import dagger.Component
-import javax.inject.Singleton
 
-@Singleton
+@BatmanApplicationScope
 @Component(modules = [ApplicationModule::class])
 interface ApplicationComponent {
     // <editor-fold desc="Classes allowed to inject this component">

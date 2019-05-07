@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ActionBarThemes">
+        <attr name="actionBarThemeOverlay" format="reference" />
+        <attr name="actionBarPopupThemeOverlay" format="reference" />
+        <attr name="actionBarOverflowIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DialogThemes">
+        <attr name="baseDialog" format="reference" />
+        <attr name="wideDialog" format="reference" />
+    </declare-styleable>
+
+</resources>

@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.batman.example"
-        minSdkVersion 18
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -52,6 +52,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.2'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+
+    // Include Batdroid Library
+    implementation project(':batdroid')
 }
 repositories {
     mavenCentral()

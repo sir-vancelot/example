@@ -1,12 +1,13 @@
 package com.batman.example.domain.service
 
+import com.batman.batdroid.domain.notification.BatmanNotificationPublisher.publishNotification
+import com.batman.batdroid.domain.service.BatmanService
 import com.batman.example.domain.notification.CounterNotification
-import com.batman.example.domain.notification.NotificationPublisher.publishNotification
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
 
-class CounterService: LocalService {
+class CounterService: BatmanService() {
     var disposable: Disposable? = null
     var seconds: Long = 0
 

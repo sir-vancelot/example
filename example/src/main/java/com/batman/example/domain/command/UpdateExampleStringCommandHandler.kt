@@ -1,15 +1,10 @@
 package com.batman.example.domain.command
 
+import com.batman.batdroid.domain.interactor.command.BatmanUpdateCommand
+import com.batman.batdroid.domain.interactor.command.datastore.BatmanUpdateCommandHandler
 import com.batman.example.domain.datastore.ExampleStringDatastore
 import com.batman.example.domain.model.ExampleStringModel
-import io.reactivex.Maybe
 
-class UpdateExampleStringCommand(val exampleStringModel: ExampleStringModel): Command()
+class UpdateExampleStringCommand(exampleStringModel: ExampleStringModel): BatmanUpdateCommand<ExampleStringModel>(exampleStringModel)
 
-class UpdateExampleStringCommandHandler(private val exampleStringDatastore: ExampleStringDatastore): CommandHandler<UpdateExampleStringCommand> {
-    override fun execute(command: UpdateExampleStringCommand): Maybe<Unit> {
-        return Maybe.fromCallable {
-            exampleStringDatastore.update(command.exampleStringModel)
-        }
-    }
-}
+class UpdateExampleStringCommandHandler(exampleStringDatastore: ExampleStringDatastore): BatmanUpdateCommandHandler<ExampleStringModel, UpdateExampleStringCommand>(exampleStringDatastore)

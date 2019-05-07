@@ -1,11 +1,13 @@
 package com.batman.example.domain.datastore.db.query
 
 import android.content.ContentValues
+import com.batman.batdroid.domain.datastore.db.query.BatmanDBQuery
 import com.batman.example.domain.model.ExampleStringModel
 
-object ExampleStringQuery: Query<ExampleStringModel> {
+object ExampleStringQuery: BatmanDBQuery<ExampleStringModel>() {
 
     override val tableName = "example_string_table"
+    override val identityColumn = COLUMNS.EXAMPLE_ID
 
     object COLUMNS {
         const val EXAMPLE_ID = "id"
@@ -19,14 +21,9 @@ object ExampleStringQuery: Query<ExampleStringModel> {
 
     override val selectAll = "SELECT * FROM $tableName;"
 
-    override fun insert(model: ExampleStringModel): ContentValues {
+    override fun insert(normalizedId: String, model: ExampleStringModel): ContentValues {
         val values = ContentValues()
-        values.put(COLUMNS.EXAMPLE_ID, model.exampleId)
-        return contentValueHelper(values, model)
-    }
-
-    override fun update(model: ExampleStringModel): ContentValues {
-        val values = ContentValues()
+        values.put(COLUMNS.EXAMPLE_ID, normalizedId)
         return contentValueHelper(values, model)
     }
 

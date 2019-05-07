@@ -1,18 +1,18 @@
 package com.batman.example.di
 
-import com.batman.example.di.scopes.ActivityScope
-import com.batman.example.domain.datastore.db.ExampleDBOpenHelper
-import com.batman.example.domain.datastore.ExampleStringDatastore
+import com.batman.batdroid.di.BatmanActivityScope
 import com.batman.example.domain.command.UpdateExampleStringCommandHandler
+import com.batman.example.domain.datastore.ExampleStringDatastore
+import com.batman.example.domain.datastore.db.ExampleDBOpenHelper
 import com.batman.example.domain.query.ReadExampleStringQueryHandler
 import com.batman.example.domain.service.CounterService
 import com.batman.example.presentation.example.ExampleActivity
-import com.bluelinelabs.conductor.Router
 import com.batman.example.presentation.example.ExampleNavigation
 import com.batman.example.presentation.example.example1.Example1ViewModel
 import com.batman.example.presentation.example.example2.Example2Commands
 import com.batman.example.presentation.example.example2.Example2Queries
 import com.batman.example.presentation.example.example2.Example2ViewModel
+import com.bluelinelabs.conductor.Router
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -22,32 +22,32 @@ class ExampleModule(private val uiRouter: Router,
                     private val activity: ExampleActivity){
     /*
        Classes that should be readily available while the modules corresponding activity is alive
-       should be provided with the @ActivityScope. Classes that do not hold data like commandHandlers
+       should be provided with the @BatmanActivityScope. Classes that do not hold data like commandHandlers
        and queryHandlers should not be. Instead, they should be provided with @Reusable which marks
        them for garbage collection.
     */
 
     // <editor-fold desc="Provide these classes while the activity is alive">
     @Provides
-    @ActivityScope
+    @BatmanActivityScope
     fun getActivity(): ExampleActivity{
         return activity
     }
 
     @Provides
-    @ActivityScope
+    @BatmanActivityScope
     fun exampleNavigation(): ExampleNavigation {
         return ExampleNavigation(uiRouter)
     }
 
     @Provides
-    @ActivityScope
+    @BatmanActivityScope
     fun example1ViewModel(exampleNavigation: ExampleNavigation): Example1ViewModel {
         return Example1ViewModel(exampleNavigation)
     }
 
     @Provides
-    @ActivityScope
+    @BatmanActivityScope
     fun example2ViewModel(exampleNavigation: ExampleNavigation,
                           example2Commands: Example2Commands,
                           example2Queries: Example2Queries): Example2ViewModel {
@@ -55,13 +55,13 @@ class ExampleModule(private val uiRouter: Router,
     }
 
     @Provides
-    @ActivityScope
+    @BatmanActivityScope
     fun example1DataStore(exampleDBOpenHelper: ExampleDBOpenHelper): ExampleStringDatastore {
         return ExampleStringDatastore(exampleDBOpenHelper)
     }
 
     @Provides
-    @ActivityScope
+    @BatmanActivityScope
     fun counterService(): CounterService {
         return CounterService()
     }

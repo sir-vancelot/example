@@ -1,39 +1,40 @@
 package com.batman.example.presentation.example.example2
 
+import com.batman.batdroid.presentation.activity.view.BatmanViewModel
 import com.batman.example.domain.command.UpdateExampleStringCommand
 import com.batman.example.domain.query.ReadExampleStringQuery
 import com.batman.example.presentation.example.ExampleNavigation
-import com.batman.example.presentation.misc.BatmanViewModel
 import io.reactivex.disposables.Disposable
 
 class Example2ViewModel(exampleNavigation: ExampleNavigation,
-                        example2Commands: Example2Commands,
-                        example2Queries: Example2Queries): BatmanViewModel<Example2View>(exampleNavigation, example2Commands, example2Queries) {
-
-    override var view: Example2View? = null
+                        private val commands: Example2Commands,
+                        private val queries: Example2Queries): BatmanViewModel<Example2View>(exampleNavigation) {
 
     private var readExampleStringDisposable: Disposable? = null
 
     override fun onViewCreated(view: Example2View) {
-        this.view = view
+        super.onViewCreated(view)
         populateView()
     }
 
     override fun onViewDestroyed() {
-        this.view = null
-
+        super.onViewDestroyed()
         if (readExampleStringDisposable != null && !readExampleStringDisposable!!.isDisposed) {
             readExampleStringDisposable!!.dispose()
         }
     }
 
     override fun populateView() {
-        readExampleStringDisposable = (queries as Example2Queries).readExampleStringQueryHandler.execute(ReadExampleStringQuery()).subscribe{view!!.onData(it!![0])}
+        readExampleStringDisposable = queries.readExampleStringQueryHandler.queryList(ReadExampleStringQuery()).doOnSuccess{
+            if (it.isNotEmpty()) {
+                view!!.onData(it!![0])
+            }
+        }.subscribe()
     }
 
-    override fun updateDatastore() {
+    fun updateDatastore() {
         if (view != null && view!!.model != null) {
-            (commands as Example2Commands).updateExampleStringCommandHandler.execute(UpdateExampleStringCommand(view!!.model!!)).subscribe()
+            commands.updateExampleStringCommandHandler.execute(UpdateExampleStringCommand(view!!.model!!)).subscribe()
         }
     }
 }
